@@ -1,6 +1,11 @@
 {
   "version": 2,
+  "functions": {
+    "api/**/*.java": {
+      "runtime": "@vercel/java@0.1.1"
+    }
+  },
   "routes": [
-    { "src": "/(.*)", "dest": "https://onrender.com" }
+    { "src": "/api/(.*)", "dest": "/api/$1" }
   ]
 }
