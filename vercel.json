@@ -1,12 +1,6 @@
 {
   "version": 2,
-  "builds": [
-    {
-      "src": "FunsquareCloud.war",
-      "use": "@vercel/java"
-    }
-  ],
   "routes": [
-    { "src": "/(.*)", "dest": "FunsquareCloud.war" }
+    { "src": "/(.*)", "dest": "https://onrender.com" }
   ]
 }
