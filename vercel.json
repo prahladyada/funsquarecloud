@@ -1,7 +1,12 @@
 {
   "version": 2,
-  "cleanUrls": true,
+  "builds": [
+    {
+      "src": "FunsquareCloud.war",
+      "use": "@vercel/java"
+    }
+  ],
   "routes": [
-    { "src": "/(.*)", "dest": "/" }
+    { "src": "/(.*)", "dest": "FunsquareCloud.war" }
   ]
 }
