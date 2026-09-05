@@ -1,0 +1,11 @@
+# Tomcat 10 image with Java 21 preview/support configuration
+FROM tomcat:10.1-jdk21-openjdk-slim
+
+# Default Tomcat apps ko remove karein taaki aapka app root par chale
+RUN rm -rf /usr/local/tomcat/webapps/*
+
+# Apni FunsquareCloud.war file ko Tomcat ke webapps folder me ROOT.war ki tarah copy karein
+COPY FunsquareCloud.war /usr/local/tomcat/webapps/ROOT.war
+
+# Vercel dynamic port assign karta hai, isliye Tomcat ko bolna hoga ki wo usi port par listen kare
+CMD ["sh", "-c", "sed -i \"s/port=\\\"8080\\\"/port=\\\"${PORT:-3000}\\\"/g\" /usr/local/tomcat/conf/server.xml && catalina.sh run"]
